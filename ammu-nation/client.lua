@@ -54,9 +54,9 @@ Citizen.CreateThread(function()
         		if user_weapons[j.Weapon] ~= nil then
 	        		if WarMenu.IsMenuOpened(j.Weapon) then
 	        			if Ammo[j.Weapon] then
-	        				if WarMenu.Button("Current Ammo", user_weapons[j.Weapon].ammo.."/"..Ammo[j.Weapon].Max) then
+	        				if WarMenu.Button("Current Ammo", GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(j.Weapon)).."/"..Ammo[j.Weapon].Max) then
 	        				end
-	        				if tonumber(user_weapons[j.Weapon].ammo) < Ammo[j.Weapon].Max then
+	        				if tonumber(GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(j.Weapon))) < Ammo[j.Weapon].Max then
 		        				if WarMenu.Button(Ammo[j.Weapon].Name..Ammo[j.Weapon].Amount, "$"..Ammo[j.Weapon].Cost) then
 		        					TriggerServerEvent("weapon:buyammo", j.Weapon)
 		        				end

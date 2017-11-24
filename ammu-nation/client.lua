@@ -56,7 +56,7 @@ Citizen.CreateThread(function()
 	        			if Ammo[j.Weapon] then
 	        				if WarMenu.Button("Current Ammo", "("..GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(j.Weapon))..") "..user_weapons[j.Weapon].ammo.."/"..Ammo[j.Weapon].Max) then
 	        				end
-	        				if tonumber(user_weapons[j.Weapon].ammo) + GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(j.Weapon)) < Ammo[j.Weapon].Max then
+	        				if GetAmmoInPedWeapon(PlayerPedId(), GetHashKey(j.Weapon)) < Ammo[j.Weapon].Max then
 		        				if WarMenu.Button(Ammo[j.Weapon].Name..Ammo[j.Weapon].Amount, "$"..Ammo[j.Weapon].Cost) then
 		        					TriggerServerEvent("weapon:buyammo", j.Weapon)
 		        				end
